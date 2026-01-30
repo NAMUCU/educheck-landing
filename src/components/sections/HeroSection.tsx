@@ -1,204 +1,162 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Play, CheckCircle, TrendingUp, Camera, FileText } from 'lucide-react';
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
-
-const fadeInRight = {
-  hidden: { opacity: 0, x: 30 },
-  visible: { opacity: 1, x: 0 },
-};
+import { Play, ArrowRight } from 'lucide-react';
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#f8fafc]">
-      {/* Subtle Background Blobs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-blue-100 rounded-full opacity-50 blur-3xl" />
-        <div className="absolute top-1/2 -left-40 w-[400px] h-[400px] bg-indigo-100 rounded-full opacity-40 blur-3xl" />
-        <div className="absolute -bottom-20 right-1/4 w-[300px] h-[300px] bg-cyan-100 rounded-full opacity-30 blur-3xl" />
-      </div>
+    <section className="relative min-h-screen overflow-hidden bg-white">
+      {/* Subtle Background Decorations */}
+      <div className="absolute -top-[200px] -right-[200px] w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(37,99,235,0.08)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute bottom-[-100px] left-[-100px] w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(6,182,212,0.06)_0%,transparent_70%)] pointer-events-none" />
 
-      <div className="relative mx-auto max-w-7xl px-4 pt-20 pb-12 sm:px-6 lg:px-8 lg:pt-28 lg:pb-20">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Left Content - 7 columns */}
+      <div className="relative mx-auto max-w-[1400px] px-12 pt-[120px] pb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          {/* Left: Text Content */}
           <motion.div
-            className="lg:col-span-7"
-            initial="hidden"
-            animate="visible"
-            variants={{
-              visible: { transition: { staggerChildren: 0.15 } }
-            }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
           >
             {/* Badge */}
-            <motion.div variants={fadeInUp} className="mb-6">
-              <span className="inline-flex items-center gap-2 rounded-full bg-blue-50 border border-blue-100 px-4 py-2 text-sm text-blue-700">
-                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                500+ 학원에서 사용 중
-              </span>
-            </motion.div>
+            <div className="inline-flex items-center gap-2 bg-emerald-500/10 text-emerald-600 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+              <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
+              500+ 학원에서 사용 중
+            </div>
 
-            {/* Headline */}
-            <motion.h1
-              variants={fadeInUp}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-gray-900 mb-6"
-            >
+            {/* Title */}
+            <h1 className="text-[56px] font-extrabold leading-[1.2] tracking-tight mb-6">
               시험지 사진 한 장이
               <br />
-              <span className="text-blue-600">학습 처방전</span>이 됩니다
-            </motion.h1>
+              <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+                학습 처방전이 됩니다
+              </span>
+            </h1>
 
-            {/* Sub copy */}
-            <motion.p
-              variants={fadeInUp}
-              className="text-lg sm:text-xl text-gray-600 mb-8 max-w-lg"
-            >
+            {/* Description */}
+            <p className="text-lg text-slate-500 mb-10 max-w-[480px] leading-relaxed">
               AI가 5초 만에 채점하고 취약점을 분석합니다.
               선생님의 밤샘 오답 노트 작업, 이제 그만하세요.
-            </motion.p>
+            </p>
 
             {/* CTA Buttons */}
-            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 mb-8">
-              <button className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-8 py-4 text-lg font-semibold text-white shadow-lg shadow-blue-600/20 transition-all hover:bg-blue-700 hover:shadow-xl hover:-translate-y-0.5">
+            <div className="flex gap-4 mb-8">
+              <button className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-[18px] rounded-xl font-semibold text-base transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(37,99,235,0.3)]">
                 2주 무료로 시작하기
+                <ArrowRight className="w-5 h-5" />
               </button>
-              <button className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-gray-200 bg-white px-8 py-4 text-lg font-semibold text-gray-700 transition-all hover:border-gray-300 hover:bg-gray-50">
-                <Play className="h-5 w-5" />
+              <button className="flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-900 px-8 py-[18px] rounded-xl font-semibold text-base transition-all">
+                <Play className="w-5 h-5" fill="currentColor" />
                 30초 데모 보기
               </button>
-            </motion.div>
+            </div>
 
-            {/* Trust indicators */}
-            <motion.div variants={fadeInUp} className="flex flex-wrap items-center gap-6 text-sm text-gray-500">
-              <span className="flex items-center gap-2">
-                <CheckCircle className="h-5 w-5 text-green-500" />
+            {/* Trust Indicators */}
+            <div className="flex gap-6">
+              <div className="flex items-center gap-2 text-slate-400 text-sm">
+                <svg className="w-[18px] h-[18px] text-emerald-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M9 12l2 2 4-4" />
+                  <circle cx="12" cy="12" r="10" />
+                </svg>
                 신용카드 필요 없음
-              </span>
-              <span className="flex items-center gap-2">
-                <CheckCircle className="h-5 w-5 text-green-500" />
+              </div>
+              <div className="flex items-center gap-2 text-slate-400 text-sm">
+                <svg className="w-[18px] h-[18px] text-emerald-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M9 12l2 2 4-4" />
+                  <circle cx="12" cy="12" r="10" />
+                </svg>
                 5분 안에 시작
-              </span>
-              <span className="flex items-center gap-2">
-                <CheckCircle className="h-5 w-5 text-green-500" />
-                평균 90% 시간 절감
-              </span>
-            </motion.div>
+              </div>
+            </div>
           </motion.div>
 
-          {/* Right Content - App Mockup - 5 columns */}
+          {/* Right: App Mockup */}
           <motion.div
-            className="lg:col-span-5"
-            initial="hidden"
-            animate="visible"
-            variants={fadeInRight}
-            transition={{ duration: 0.7, delay: 0.3 }}
+            className="flex justify-center items-center"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="relative">
-              {/* App Screen Mockup */}
-              <div className="relative bg-white rounded-2xl shadow-2xl shadow-gray-200/50 border border-gray-100 overflow-hidden">
-                {/* App Header */}
-                <div className="flex items-center justify-between px-5 py-4 bg-gray-50 border-b border-gray-100">
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center">
-                      <CheckCircle className="w-5 h-5 text-white" />
-                    </div>
-                    <span className="font-semibold text-gray-900">에듀체크</span>
-                  </div>
-                  <div className="flex gap-1.5">
-                    <div className="w-3 h-3 rounded-full bg-gray-200" />
-                    <div className="w-3 h-3 rounded-full bg-gray-200" />
-                    <div className="w-3 h-3 rounded-full bg-gray-200" />
+              {/* Floating Card */}
+              <motion.div
+                className="absolute -left-10 top-[60px] bg-white rounded-2xl px-5 py-4 shadow-[0_8px_32px_rgba(0,0,0,0.12)] flex items-center gap-3 z-10"
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <div className="w-10 h-10 rounded-[10px] bg-emerald-500/10 flex items-center justify-center text-emerald-600 text-lg">
+                  ✓
+                </div>
+                <div>
+                  <p className="text-xs text-slate-400">자동 채점 완료</p>
+                  <p className="text-lg font-bold text-slate-900">2.3초</p>
+                </div>
+              </motion.div>
+
+              {/* Main App Mockup - Dark Theme */}
+              <div className="w-[340px] bg-gradient-to-b from-slate-800 to-slate-900 rounded-[32px] p-6 shadow-[0_32px_64px_rgba(0,0,0,0.15),0_16px_32px_rgba(0,0,0,0.1)]">
+                {/* Mockup Header */}
+                <div className="flex justify-between items-center mb-5">
+                  <span className="text-white text-sm font-semibold">9:41</span>
+                  <div className="flex gap-1">
+                    <span className="w-1 h-1 bg-white rounded-full" />
+                    <span className="w-1 h-1 bg-white rounded-full" />
+                    <span className="w-1 h-1 bg-white rounded-full" />
                   </div>
                 </div>
 
-                {/* App Content */}
-                <div className="p-5 space-y-4">
-                  {/* Student Info */}
-                  <div className="flex items-center justify-between">
+                {/* Mockup Content */}
+                <div className="bg-white/5 rounded-[20px] p-5">
+                  <p className="text-slate-400 text-xs mb-2">오늘의 분석</p>
+
+                  <div className="flex justify-between items-center mb-4">
+                    <span className="text-white font-semibold text-[15px]">수학 중간고사</span>
+                    <span className="bg-emerald-500 text-white text-xs font-semibold px-[10px] py-1 rounded-full">+12점</span>
+                  </div>
+
+                  {/* Score */}
+                  <div className="flex items-baseline gap-1 mb-5">
+                    <span className="text-[48px] font-extrabold text-white">92</span>
+                    <span className="text-slate-400 text-base">/ 100</span>
+                  </div>
+
+                  {/* Chart Bars */}
+                  <div className="flex gap-2 mb-5">
+                    {[32, 40, 36, 44, 38].map((h, i) => (
+                      <div
+                        key={i}
+                        className="flex-1 rounded-lg bg-gradient-to-t from-blue-600 to-cyan-400"
+                        style={{ height: `${h}px`, opacity: 0.7 + i * 0.075 }}
+                      />
+                    ))}
+                  </div>
+
+                  {/* Insight Card */}
+                  <div className="bg-cyan-500/15 rounded-xl p-[14px] flex items-center gap-3 mb-4">
+                    <div className="w-8 h-8 bg-cyan-500 rounded-lg flex items-center justify-center">
+                      <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <polyline points="23,6 13.5,15.5 8.5,10.5 1,18" />
+                      </svg>
+                    </div>
                     <div>
-                      <p className="text-sm text-gray-500">오늘의 분석 결과</p>
-                      <p className="text-xl font-bold text-gray-900">김민수 학생</p>
-                    </div>
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/30">
-                      <span className="text-xl font-bold text-white">92</span>
+                      <p className="text-cyan-400 text-xs font-semibold mb-0.5">취약점 발견</p>
+                      <p className="text-white text-[13px]">이차방정식 근의 공식 - 복습 권장</p>
                     </div>
                   </div>
 
-                  {/* Score Card */}
-                  <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-4">
-                    <div className="flex justify-between items-center mb-3">
-                      <span className="font-medium text-gray-700">수학 중간고사</span>
-                      <span className="text-sm text-green-600 font-semibold bg-green-100 px-2 py-0.5 rounded">+12점 향상</span>
+                  {/* Action Buttons */}
+                  <div className="grid grid-cols-2 gap-[10px]">
+                    <div className="bg-white/5 rounded-xl p-[14px] text-center">
+                      <p className="text-xl mb-1.5">📊</p>
+                      <p className="text-slate-400 text-xs">학부모 리포트</p>
                     </div>
-                    {/* Progress bars */}
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-3">
-                        <span className="text-xs text-gray-500 w-16">이차방정식</span>
-                        <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
-                          <div className="h-full bg-blue-500 rounded-full" style={{width: '85%'}} />
-                        </div>
-                        <span className="text-xs font-medium text-gray-700">85%</span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <span className="text-xs text-gray-500 w-16">함수</span>
-                        <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
-                          <div className="h-full bg-blue-500 rounded-full" style={{width: '92%'}} />
-                        </div>
-                        <span className="text-xs font-medium text-gray-700">92%</span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <span className="text-xs text-gray-500 w-16">도형</span>
-                        <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
-                          <div className="h-full bg-amber-500 rounded-full" style={{width: '68%'}} />
-                        </div>
-                        <span className="text-xs font-medium text-amber-600">68%</span>
-                      </div>
+                    <div className="bg-white/5 rounded-xl p-[14px] text-center">
+                      <p className="text-xl mb-1.5">📷</p>
+                      <p className="text-slate-400 text-xs">시험지 촬영</p>
                     </div>
-                  </div>
-
-                  {/* Weakness Alert */}
-                  <div className="flex items-start gap-3 bg-amber-50 border border-amber-100 rounded-xl p-4">
-                    <TrendingUp className="w-5 h-5 text-amber-500 mt-0.5" />
-                    <div>
-                      <p className="font-medium text-amber-800">취약점 발견</p>
-                      <p className="text-sm text-amber-600">도형의 닮음 단원 복습 필요</p>
-                    </div>
-                  </div>
-
-                  {/* Quick Actions */}
-                  <div className="grid grid-cols-2 gap-3">
-                    <button className="flex items-center gap-2 p-3 bg-gray-50 hover:bg-gray-100 rounded-xl transition-colors">
-                      <Camera className="w-5 h-5 text-gray-600" />
-                      <span className="text-sm font-medium text-gray-700">시험지 촬영</span>
-                    </button>
-                    <button className="flex items-center gap-2 p-3 bg-blue-50 hover:bg-blue-100 rounded-xl transition-colors">
-                      <FileText className="w-5 h-5 text-blue-600" />
-                      <span className="text-sm font-medium text-blue-700">리포트 발송</span>
-                    </button>
                   </div>
                 </div>
               </div>
-
-              {/* Single Floating Badge */}
-              <motion.div
-                className="absolute -left-4 top-1/3 bg-white rounded-xl px-4 py-3 shadow-lg border border-gray-100"
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
-                    <CheckCircle className="w-5 h-5 text-green-600" />
-                  </div>
-                  <div>
-                    <p className="text-xs text-gray-500">자동 채점 완료</p>
-                    <p className="text-lg font-bold text-gray-900">2.3초</p>
-                  </div>
-                </div>
-              </motion.div>
             </div>
           </motion.div>
         </div>
