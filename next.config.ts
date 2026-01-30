@@ -1,0 +1,20 @@
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  // Static HTML export for GitHub Pages
+  output: 'export',
+
+  // Required for static export - disables Image Optimization API
+  images: {
+    unoptimized: true,
+  },
+
+  // Base path for GitHub Pages subdirectory deployment
+  // Change to '/your-repo-name' if deploying to github.io/your-repo-name
+  basePath: '',
+
+  // Adds trailing slash to URLs (e.g., /about/ instead of /about)
+  trailingSlash: true,
+};
+
+export default nextConfig;
