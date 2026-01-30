@@ -43,7 +43,7 @@ export default function HeroSection() {
       {/* Background gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-blue-100/30 via-transparent to-white/80 pointer-events-none" />
 
-      <div className="relative mx-auto max-w-5xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+      <div className="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -78,24 +78,22 @@ export default function HeroSection() {
           <motion.div
             variants={fadeInUp}
             transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="mt-12 w-full"
+            className="mt-16 w-full max-w-4xl"
           >
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-0">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-4">
               {steps.map((step, index) => (
-                <div key={step.title} className="flex items-center">
+                <div key={step.title} className="relative flex flex-col items-center">
                   {/* Step Card */}
-                  <div className="flex flex-col items-center">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-500 shadow-md shadow-blue-500/25">
-                      <step.icon className="h-6 w-6 text-white" />
-                    </div>
-                    <p className="mt-2 font-semibold text-gray-900 text-sm">{step.title}</p>
-                    <p className="text-xs text-gray-500">{step.desc}</p>
+                  <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 shadow-lg shadow-blue-500/30">
+                    <step.icon className="h-10 w-10 text-white" />
                   </div>
+                  <p className="mt-4 text-lg font-bold text-gray-900">{step.title}</p>
+                  <p className="mt-1 text-gray-500">{step.desc}</p>
 
                   {/* Arrow */}
                   {index < steps.length - 1 && (
-                    <div className="hidden sm:block mx-8">
-                      <ArrowRight className="h-5 w-5 text-blue-400" />
+                    <div className="hidden sm:block absolute top-10 -right-2 translate-x-1/2">
+                      <ArrowRight className="h-6 w-6 text-blue-400" />
                     </div>
                   )}
                 </div>
@@ -103,11 +101,17 @@ export default function HeroSection() {
             </div>
 
             {/* Time Savings */}
-            <div className="mt-6 flex justify-center">
-              <div className="inline-flex items-center gap-4 rounded-full bg-blue-50 px-5 py-2 text-sm">
-                <span className="text-gray-600">매일 <span className="font-bold text-blue-600">2시간+</span> 절약</span>
-                <span className="text-gray-300">|</span>
-                <span className="text-gray-600">한 달 <span className="font-bold text-blue-600">60시간</span></span>
+            <div className="mt-10 flex justify-center">
+              <div className="inline-flex items-center gap-6 rounded-2xl bg-white px-8 py-4 shadow-lg">
+                <div className="text-center">
+                  <p className="text-sm text-gray-500">매일 절약</p>
+                  <p className="text-2xl font-bold text-blue-600">2시간+</p>
+                </div>
+                <div className="h-10 w-px bg-gray-200" />
+                <div className="text-center">
+                  <p className="text-sm text-gray-500">한 달 절약</p>
+                  <p className="text-2xl font-bold text-blue-600">60시간</p>
+                </div>
               </div>
             </div>
           </motion.div>
