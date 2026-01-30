@@ -83,9 +83,9 @@ export default function SolutionSection() {
           {/* Desktop Layout - Horizontal */}
           <div className="hidden lg:block">
             {/* Connecting Line */}
-            <div className="absolute top-24 left-[calc(16.67%+60px)] right-[calc(16.67%+60px)] h-0.5 bg-gradient-to-r from-blue-200 via-blue-400 to-blue-200" />
+            <div className="absolute top-20 left-[calc(16.67%+60px)] right-[calc(16.67%+60px)] h-0.5 bg-gradient-to-r from-blue-200 via-blue-400 to-blue-200" />
 
-            <div className="grid grid-cols-3 gap-8">
+            <div className="grid grid-cols-3 gap-8 pt-8">
               {steps.map((step, index) => (
                 <motion.div
                   key={step.number}
@@ -93,7 +93,7 @@ export default function SolutionSection() {
                   variants={itemVariants}
                 >
                   {/* Step Number Badge */}
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-sm font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
+                  <span className="absolute -top-8 left-1/2 -translate-x-1/2 text-sm font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full whitespace-nowrap">
                     STEP {step.number}
                   </span>
 
@@ -104,7 +104,7 @@ export default function SolutionSection() {
 
                   {/* Arrow between steps (desktop) */}
                   {index < steps.length - 1 && (
-                    <div className="absolute top-24 -right-4 translate-x-1/2 z-20">
+                    <div className="absolute top-16 -right-4 translate-x-1/2 z-20">
                       <ArrowRight className="w-8 h-8 text-blue-500" />
                     </div>
                   )}

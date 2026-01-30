@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Play, Smartphone, Monitor } from 'lucide-react';
+import { Play, Camera, BarChart3, FileText, ArrowRight } from 'lucide-react';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -21,7 +21,7 @@ const staggerContainer = {
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-blue-50 via-indigo-50 to-white">
+    <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-indigo-50 to-white">
       {/* Background gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-blue-100/30 via-transparent to-white/80 pointer-events-none" />
 
@@ -103,38 +103,65 @@ export default function HeroSection() {
             </motion.div>
           </div>
 
-          {/* Right content - Product screenshot placeholder */}
+          {/* Right content - Process Flow Visual */}
           <motion.div
             variants={fadeInUp}
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="flex flex-1 items-center justify-center"
           >
-            <div className="relative">
-              {/* Laptop mockup */}
-              <div className="relative z-10 rounded-2xl bg-gradient-to-br from-gray-200 to-gray-300 p-2 shadow-2xl">
-                <div className="rounded-xl bg-gray-800 p-1">
-                  {/* Screen */}
-                  <div className="flex h-[280px] w-[440px] items-center justify-center rounded-lg bg-gradient-to-br from-gray-100 to-gray-200 sm:h-[320px] sm:w-[500px]">
-                    <div className="flex flex-col items-center gap-3 text-gray-400">
-                      <Monitor className="h-16 w-16" />
-                      <span className="text-sm font-medium">대시보드 화면</span>
+            <div className="relative w-full max-w-md">
+              {/* Process Flow Card */}
+              <div className="rounded-3xl bg-white p-8 shadow-2xl">
+                <div className="flex flex-col gap-6">
+                  {/* Step 1 */}
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-500 shadow-lg shadow-blue-500/30">
+                      <Camera className="h-7 w-7 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-bold text-gray-900">시험지 촬영</p>
+                      <p className="text-sm text-gray-500">스마트폰으로 5초면 끝</p>
+                    </div>
+                  </div>
+
+                  <div className="ml-7 h-8 w-0.5 bg-gradient-to-b from-blue-500 to-blue-400" />
+
+                  {/* Step 2 */}
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-500 shadow-lg shadow-blue-500/30">
+                      <BarChart3 className="h-7 w-7 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-bold text-gray-900">AI 자동 분석</p>
+                      <p className="text-sm text-gray-500">채점 + 취약점 즉시 파악</p>
+                    </div>
+                  </div>
+
+                  <div className="ml-7 h-8 w-0.5 bg-gradient-to-b from-blue-400 to-blue-300" />
+
+                  {/* Step 3 */}
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-500 shadow-lg shadow-blue-500/30">
+                      <FileText className="h-7 w-7 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-bold text-gray-900">학습 처방전</p>
+                      <p className="text-sm text-gray-500">맞춤 복습 가이드 제공</p>
                     </div>
                   </div>
                 </div>
-                {/* Laptop base */}
-                <div className="mx-auto h-3 w-20 rounded-b-lg bg-gradient-to-b from-gray-300 to-gray-400" />
-              </div>
 
-              {/* Phone mockup - overlapping */}
-              <div className="absolute -bottom-8 -right-8 z-20 rounded-3xl bg-gradient-to-br from-gray-200 to-gray-300 p-1.5 shadow-xl sm:-right-12">
-                <div className="rounded-[20px] bg-gray-900 p-1">
-                  {/* Notch */}
-                  <div className="mx-auto mb-1 h-4 w-16 rounded-full bg-gray-800" />
-                  {/* Screen */}
-                  <div className="flex h-[180px] w-[100px] items-center justify-center rounded-2xl bg-gradient-to-br from-gray-100 to-gray-200 sm:h-[200px] sm:w-[110px]">
-                    <div className="flex flex-col items-center gap-2 text-gray-400">
-                      <Smartphone className="h-10 w-10" />
-                      <span className="text-xs font-medium">모바일 앱</span>
+                {/* Result highlight */}
+                <div className="mt-8 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 p-4">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm text-gray-500">매일 절약되는 시간</p>
+                      <p className="text-2xl font-bold text-blue-600">2시간+</p>
+                    </div>
+                    <ArrowRight className="h-6 w-6 text-blue-500" />
+                    <div>
+                      <p className="text-sm text-gray-500">한 달 절약</p>
+                      <p className="text-2xl font-bold text-blue-600">60시간</p>
                     </div>
                   </div>
                 </div>
@@ -142,7 +169,7 @@ export default function HeroSection() {
 
               {/* Decorative elements */}
               <div className="absolute -left-6 -top-6 h-24 w-24 rounded-full bg-blue-400/20 blur-2xl" />
-              <div className="absolute -bottom-10 -left-10 h-32 w-32 rounded-full bg-indigo-400/20 blur-2xl" />
+              <div className="absolute -bottom-10 -right-10 h-32 w-32 rounded-full bg-indigo-400/20 blur-2xl" />
             </div>
           </motion.div>
         </motion.div>
