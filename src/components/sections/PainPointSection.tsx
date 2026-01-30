@@ -78,7 +78,7 @@ function PainPointCard({ icon: Icon, title, content, delay }: PainPointCardProps
 
 export default function PainPointSection() {
   return (
-    <section className="bg-gray-50 py-20 md:py-28">
+    <section className="bg-white py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

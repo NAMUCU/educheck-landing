@@ -209,7 +209,7 @@ function TestimonialCard({
 
 export default function SocialProofSection() {
   return (
-    <section className="bg-white py-20 sm:py-24">
+    <section className="bg-gradient-to-b from-slate-50 to-white py-20 sm:py-24">
       <Container>
         {/* Section Title */}
         <motion.div
@@ -219,6 +219,21 @@ export default function SocialProofSection() {
           transition={{ duration: 0.6 }}
         >
           <SectionTitle title="이미 500개 학원이 밤을 되찾았습니다" />
+        </motion.div>
+
+        {/* Academy Logos */}
+        <motion.div
+          className="flex flex-wrap justify-center items-center gap-8 mb-12 opacity-60"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 0.6 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          {['수학의정석학원', '영어명문학원', '과학탐구학원', '대치TOP학원', '강남SKY학원'].map((name) => (
+            <div key={name} className="px-4 py-2 bg-gray-100 rounded-lg">
+              <span className="text-sm font-medium text-gray-500">{name}</span>
+            </div>
+          ))}
         </motion.div>
 
         {/* Statistics Grid */}
