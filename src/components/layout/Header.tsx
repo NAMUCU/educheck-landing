@@ -49,12 +49,12 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-12">
+          <nav className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => (
               <button
                 key={link.sectionId}
                 onClick={() => scrollToSection(link.sectionId)}
-                className={`text-[17px] font-medium transition-colors hover:text-[#3B82F6] ${
+                className={`text-lg font-bold transition-colors hover:text-[#3B82F6] ${
                   isScrolled ? 'text-gray-700' : 'text-gray-700'
                 }`}
               >

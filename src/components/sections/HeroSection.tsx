@@ -10,10 +10,11 @@ export default function HeroSection() {
       <div className="absolute -top-[200px] -right-[200px] w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(37,99,235,0.08)_0%,transparent_70%)] pointer-events-none" />
       <div className="absolute bottom-[-100px] left-[-100px] w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(6,182,212,0.06)_0%,transparent_70%)] pointer-events-none" />
 
-      <div className="relative mx-auto max-w-6xl px-6 pt-[120px] pb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="relative mx-auto px-6 pt-[120px] pb-20">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-16">
           {/* Left: Text Content */}
           <motion.div
+            className="max-w-[520px]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
