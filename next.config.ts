@@ -10,8 +10,7 @@ const nextConfig: NextConfig = {
   },
 
   // Base path for GitHub Pages subdirectory deployment
-  // Change to '/your-repo-name' if deploying to github.io/your-repo-name
-  basePath: '',
+  basePath: '/educheck-landing',
 
   // Adds trailing slash to URLs (e.g., /about/ instead of /about)
   trailingSlash: true,
