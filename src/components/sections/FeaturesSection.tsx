@@ -55,7 +55,7 @@ const cardVariants = {
 
 export default function FeaturesSection() {
   return (
-    <section id="features" className="py-20 md:py-28 bg-gradient-to-b from-blue-50/50 to-gray-50">
+    <section id="features" className="py-20 md:py-28 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <SectionTitle title="선생님이 원하던 바로 그 기능" />
 
